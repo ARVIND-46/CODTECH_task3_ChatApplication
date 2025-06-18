@@ -1,8 +1,15 @@
 import React, { useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Story = () => {
   const scrollRef = useRef();
+  const navigate =useNavigate();
+  const handleClick = (id) => {
+  navigate(`/story/${id}`);
+};
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -53,6 +60,7 @@ const Story = () => {
           <div
             key={story.id}
             className="flex flex-col items-center text-black min-w-max"
+            onClick={()=>handleClick(story.id)}
           >
             <div className="p-[2px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600">
               <div className="bg-white p-[2px] rounded-full">
