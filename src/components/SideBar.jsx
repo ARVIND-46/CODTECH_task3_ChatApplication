@@ -36,7 +36,7 @@ const SideBar = () => {
           </li>
           <li className="flex items-center space-x-4 text-gray-700 hover:text-blue-500 cursor-pointer">
             <FaEnvelope className="text-xl" />
-            <span onClick={() => navigate('/message')}>
+            <span >
              Messages 
             </span>
           </li>

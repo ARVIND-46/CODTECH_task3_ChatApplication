@@ -52,6 +52,12 @@ const faqResponses = {
     "Glad I could assist!",
     "No problem at all!",
   ],
+  thankyou: [
+    "You're welcome! 😊",
+    "I'm glad I could help.",
+    "Anytime! If you have more questions, just ask.",
+    "Happy to assist!",
+  ],
   // --- New Categories and Expanded Responses ---
 
   // User expresses confusion or asks for general information
@@ -238,47 +244,47 @@ const Message = () => {
   };
 
   return (
-    <div className="flex flex-col h-[80vh] max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-6">
-      {/* Chat Area */}
-      <div className="flex-1 p-4 overflow-y-auto space-y-2">
-        {messages.map((msg, idx) => (
-          <div
-            key={idx}
-            className={`max-w-xs px-4 py-2 rounded-lg ${
-              msg.type === 'user'
-                ? 'bg-blue-500 text-white self-end ml-auto'
-                : 'bg-gray-200 text-gray-800 self-start'
-            }`}
-          >
-            {msg.text}
-          </div>
-        ))}
-
-        {/* Typing Indicator */}
-        {typing && (
-          <div className="text-sm text-gray-500 animate-pulse ml-2">Typing...</div>
-        )}
+    <div className="flex flex-col h-screen sm:h-[80vh] w-full max-w-xl mx-auto bg-white shadow-md rounded-none sm:rounded-lg overflow-hidden mt-0 sm:mt-6">
+  {/* Chat Area */}
+  <div className="flex-1 p-3 sm:p-4 overflow-y-auto space-y-2">
+    {messages.map((msg, idx) => (
+      <div
+        key={idx}
+        className={`max-w-[80%] px-4 py-2 rounded-lg text-sm sm:text-base ${
+          msg.type === 'user'
+            ? 'bg-blue-500 text-white self-end ml-auto'
+            : 'bg-gray-200 text-gray-800 self-start'
+        }`}
+      >
+        {msg.text}
       </div>
+    ))}
 
-      {/* Input Area */}
-      <div className="flex items-center border-t p-2">
-        <input
-          type="text"
-          placeholder="Type your message..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          className="flex-1 border rounded px-4 py-2 mr-2 focus:outline-none"
-        />
-        <button
-          onClick={handleSend}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Send
-        </button>
-      </div>
-    </div>
-  );
+    {/* Typing Indicator */}
+    {typing && (
+      <div className="text-sm text-gray-500 animate-pulse ml-2">Typing...</div>
+    )}
+  </div>
+
+  {/* Input Area */}
+  <div className="flex items-center border-t p-2 sm:p-3">
+    <input
+      type="text"
+      placeholder="Type your message..."
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+      onKeyDown={handleKeyDown}
+      className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      onClick={handleSend}
+      className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 text-sm sm:text-base"
+    >
+      Send
+    </button>
+  </div>
+</div>
+  )
 };
 
 export default Message;
