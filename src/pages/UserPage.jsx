@@ -1,25 +1,28 @@
 import React from 'react';
 import SideBar from '../components/SideBar';
 import Story from '../components/Story';
-import Message from '../components/Message';
 import ChatPopup from '../components/ChatPopup';
+import Post from '../components/Post';
 
 const UserPage = () => {
   return (
     <div className="flex bg-white min-h-screen text-black">
-      {/* Sidebar (hidden on small screens) */}
-      <div className="hidden md:block fixed">
+      {/* Sidebar (fixed and hidden on small screens) */}
+      <div className="hidden md:block fixed h-full">
         <SideBar />
       </div>
 
-      {/* Main Content */}
+      {/* Main Content Area */}
       <div className="flex-1 md:ml-64 w-full">
+        {/* Story at top */}
         <Story />
-        {/* Add other content below Story */}
+
+        {/* Posts below stories */}
+        <Post />
       </div>
-      <div className="relative">
-        <ChatPopup />
-      </div>
+
+      {/* Floating Chat Popup */}
+      <ChatPopup />
     </div>
   );
 };
