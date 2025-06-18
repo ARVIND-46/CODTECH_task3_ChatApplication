@@ -83,7 +83,6 @@ const Post = () => {
                       <video
                         controls
                         loop
-                        autoPlay
                         className="w-full max-h-[600px] object-cover rounded-lg"
                       >
                         <source src={post.video} type="video/mp4" />
